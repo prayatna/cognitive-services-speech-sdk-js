@@ -14,11 +14,11 @@ import {
 } from "../Exports";
 import {
     ConversationImpl,
-    ConversationTranscriptionHandler,
+    IConversationTranscriptionHandler,
 } from "./Exports";
 import { Callback, IConversation } from "./IConversation";
 
-export class ConversationTranscriber implements ConversationTranscriptionHandler {
+export class ConversationTranscriber implements IConversationTranscriptionHandler {
     private privDisposedRecognizer: boolean;
     private privRecognizer: TranscriberRecognizer;
     private privProperties: PropertyCollection;
@@ -42,7 +42,7 @@ export class ConversationTranscriber implements ConversationTranscriptionHandler
      * @function
      * @public
      */
-    public canceled: (sender: ConversationTranscriptionHandler, event: CancellationEventArgs) => void;
+    public canceled: (sender: IConversationTranscriptionHandler, event: CancellationEventArgs) => void;
 
     /**
      * @param {Conversation} converation - conversation to be recognized
@@ -66,7 +66,7 @@ export class ConversationTranscriber implements ConversationTranscriptionHandler
       * @function
       * @public
       */
-    public transcribed: (sender: ConversationTranscriptionHandler, event: ConversationTranscriptionEventArgs) => void;
+    public transcribed: (sender: IConversationTranscriptionHandler, event: ConversationTranscriptionEventArgs) => void;
 
      /**
       * The event recognizing signals that an intermediate conversation transcription result is received.
@@ -74,7 +74,7 @@ export class ConversationTranscriber implements ConversationTranscriptionHandler
       * @function
       * @public
       */
-    public transcribing: (sender: ConversationTranscriptionHandler, event: ConversationTranscriptionEventArgs) => void;
+    public transcribing: (sender: IConversationTranscriptionHandler, event: ConversationTranscriptionEventArgs) => void;
 
     /**
      * Defines event handler for session started events.
@@ -82,7 +82,7 @@ export class ConversationTranscriber implements ConversationTranscriptionHandler
      * @function
      * @public
      */
-    public sessionStarted: (sender: ConversationTranscriptionHandler, event: SessionEventArgs) => void;
+    public sessionStarted: (sender: IConversationTranscriptionHandler, event: SessionEventArgs) => void;
 
     /**
      * Defines event handler for session stopped events.
@@ -90,7 +90,7 @@ export class ConversationTranscriber implements ConversationTranscriptionHandler
      * @function
      * @public
      */
-    public sessionStopped: (sender: ConversationTranscriptionHandler, event: SessionEventArgs) => void;
+    public sessionStopped: (sender: IConversationTranscriptionHandler, event: SessionEventArgs) => void;
 
     /**
      * Gets the authorization token used to communicate with the service.

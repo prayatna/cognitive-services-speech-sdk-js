@@ -10,21 +10,21 @@ import {
   ConversationTranslationEventArgs } from "./Exports";
 import { Callback, IConversation } from "./IConversation";
 
-export interface ConversationHandler {
+export interface IConversationHandler {
     /**
      * Defines event handler for session started events.
      */
-    sessionStarted: (sender: ConversationHandler, event: SessionEventArgs) => void;
+    sessionStarted: (sender: IConversationHandler, event: SessionEventArgs) => void;
 
     /**
      * Defines event handler for session stopped events.
      */
-    sessionStopped: (sender: ConversationHandler, event: SessionEventArgs) => void;
+    sessionStopped: (sender: IConversationHandler, event: SessionEventArgs) => void;
 
     /**
      * Event that signals an error with the conversation transcription, or the end of the audio stream has been reached.
      */
-    canceled: (sender: ConversationHandler, event: ConversationTranslationCanceledEventArgs) => void;
+    canceled: (sender: IConversationHandler, event: ConversationTranslationCanceledEventArgs) => void;
 
     /**
      * Leave the current conversation. After this is called, you will no longer receive any events.
@@ -50,7 +50,7 @@ export interface ConversationHandler {
  * own devices to see everyone else's recognitions and IMs in their own languages. Participants
  * can also speak and send IMs to others.
  */
-export interface IConversationTranslator extends ConversationHandler {
+export interface IConversationTranslator extends IConversationHandler {
 
     /** Gets the collection of properties and their values defined for this instance. */
     readonly properties: PropertyCollection;
@@ -112,16 +112,16 @@ export interface IConversationTranslator extends ConversationHandler {
  * A conversation transcriber that enables a connected experience where conversations can
  * logged with each participant recognized.
  */
-export interface ConversationTranscriptionHandler extends ConversationHandler {
+export interface IConversationTranscriptionHandler extends IConversationHandler {
      /**
       * The event recognized signals that a final conversation translation result is received.
       */
-    transcribed: (sender: ConversationTranscriptionHandler, event: ConversationTranscriptionEventArgs) => void;
+    transcribed: (sender: IConversationTranscriptionHandler, event: ConversationTranscriptionEventArgs) => void;
 
      /**
       * The event recognizing signals that an intermediate conversation translation result is received.
       */
-    transcribing: (sender: ConversationTranscriptionHandler, event: ConversationTranscriptionEventArgs) => void;
+    transcribing: (sender: IConversationTranscriptionHandler, event: ConversationTranscriptionEventArgs) => void;
 
     /**
      * Joins an existing conversation.

@@ -14,4 +14,4 @@ export { ConversationTranslator } from "./ConversationTranslator";
 export { ConversationTranscriber } from "./ConversationTranscriber";
 export { IParticipant, Participant, User, VoiceSignature } from "./IParticipant";
 export { ParticipantChangedReason } from "./ParticipantChangedReason";
-export { ConversationHandler, ConversationTranscriptionHandler, IConversationTranslator } from "./ConversationHandler";
+export { IConversationHandler as ConversationHandler, IConversationTranscriptionHandler, IConversationTranslator } from "./ConversationHandler";
